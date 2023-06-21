@@ -49,11 +49,11 @@ char *strdup(const char *src);
 void print_error(char *msg, char *arg);
 char *get_file_data(char *file);
 void push(char *data);
-void pall(stack_t stack);
-void pint(stack_t stack);
-void pop(stack_t stack);
-void swap(stack_t stack);
-void add(stack_t stack);
+void pall(stack_t *stack);
+void pint(stack_t *stack);
+void pop(stack_t *stack);
+void swap(stack_t *stack);
+void add(stack_t *stack);
 void nop(void);
 char **separate_string(char *s, char *deli);
 

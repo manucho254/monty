@@ -8,7 +8,7 @@
  * @data: data to add to stack
  */
 
-void push(char *data)
+void push(stack_t *stack, char *data)
 {
 	stack_t *new;
 
@@ -19,5 +19,6 @@ void push(char *data)
 		exit(EXIT_FAILURE);
 	}
 
+	new->n = atoi(data);
 	printf("%s", data);
 }
