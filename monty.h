@@ -34,4 +34,27 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct codes - structure to hold the, different opdcode to check for.
+ *
+ * @opcode: type to check of symbol
+ */
+
+typedef struct codes
+{
+	char *opcode;
+} op_codes;
+
+char *strdup(const char *src);
+void print_error(char *msg, char *arg);
+char *get_file_data(char *file);
+void push(char *data);
+void pall(stack_t stack);
+void pint(stack_t stack);
+void pop(stack_t stack);
+void swap(stack_t stack);
+void add(stack_t stack);
+void nop(void);
+char **separate_string(char *s, char *deli);
+
 #endif
