@@ -48,7 +48,7 @@ typedef struct codes
 char *strdup(const char *src);
 void print_error(char *msg, char *arg);
 char *get_file_data(char *file);
-void push(char *data);
+void push(stack_t *stack, char *data);
 void pall(stack_t *stack);
 void pint(stack_t *stack);
 void pop(stack_t *stack);

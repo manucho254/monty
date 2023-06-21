@@ -6,11 +6,13 @@
  * push - function to add item to stack.
  *
  * @data: data to add to stack
+ * @stack: pointer to stack.
  */
 
 void push(stack_t *stack, char *data)
 {
 	stack_t *new;
+	(void)stack;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
