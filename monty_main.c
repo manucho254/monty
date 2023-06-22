@@ -16,9 +16,8 @@
 
 int main(int argc, char *argv[])
 {
-	char *data, **sep, **tmp;
-	int x, i;
-	stack_t *stack;
+	char *data, **sep;
+	stack_t *stack, *new;
 
 	if (argc != 2)
 	{
@@ -26,26 +25,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	stack = malloc(sizeof(stack_t));
-	if (stack == NULL)
-	{
-		print_error("Error: malloc failed", NULL);
-		exit(EXIT_FAILURE);
-	}
+	stack = NULL;
 	data = get_file_data(argv[1]);
 	sep = separate_string(data, "\n");
 
-	for (x = 0; sep[x] != NULL; x++)
-	{
-		tmp = separate_string(sep[x], " ");
-		for (i = 0; tmp[i] != NULL; i++)
-		{
-			if (strcmp(tmp[i], "nop") == 0)
-				return (0);
-			printf("%s", tmp[i]);
-		}
-	}
+	new = execute_codes(&stack, sep);
+	if (new == NULL)
+		exit(0);
 
-	printf("\n");
 	return (0);
 }
