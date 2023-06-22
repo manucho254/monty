@@ -16,6 +16,10 @@ int count_strings(char *s, char *deli)
 	char *portion;
 	int count = 0;
 
+	if (s == NULL)
+	{
+		return (0);
+	}
 	portion = strtok(s, deli);
 	while (portion != NULL)
 	{

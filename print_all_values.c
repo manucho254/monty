@@ -1,5 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * pall - print all values in stack
@@ -9,9 +11,13 @@
 
 void pall(stack_t *stack)
 {
-	while (stack != NULL)
+	char *val, tmp[100];
+
+	while (stack)
 	{
-		fprintf(stdout, "%d\n", stack->n);
+		val = _itoa(stack->n, tmp, 10);
+		strcat(val, "\n");
+		write(STDOUT_FILENO, val, strlen(val));
 		stack = stack->next;
 	}
 }

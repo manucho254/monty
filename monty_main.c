@@ -33,5 +33,6 @@ int main(int argc, char *argv[])
 	if (new == NULL)
 		exit(0);
 
+	free(new);
 	return (0);
 }

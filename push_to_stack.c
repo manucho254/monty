@@ -14,7 +14,6 @@
 stack_t *push(stack_t *stack, char *data)
 {
 	stack_t *new;
-	(void)stack;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)

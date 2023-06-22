@@ -1,6 +1,8 @@
 #ifndef MONTY_H__
 #define MONTY_H__
 
+#include <stdbool.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -46,7 +48,6 @@ typedef struct codes
 } op_codes;
 
 char *strdup(const char *src);
-void print_error(char *msg, char *arg);
 char *get_file_data(char *file);
 stack_t *push(stack_t *stack, char *data);
 void pall(stack_t *stack);
@@ -58,6 +59,12 @@ void nop(void);
 char **separate_string(char *s, char *deli);
 int count_strings(char *s, char *deli);
 stack_t *execute_codes(stack_t **stack, char *args[]);
-
+bool is_number(char *s);
+char *_itoa(int value, char *s, int base);
+void print_error(char *msg, char *arg);
+void print_malloc_err(char *msg);
+void line_or_integer_err(char *msg, int line);
+void unkown_op_code_err(char *msg, char *arg, int line);
+op_codes *get_op_codes(op_codes opcodes[]);
 
 #endif
