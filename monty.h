@@ -1,5 +1,5 @@
-#ifndef MONTY_H__
-#define MONTY_H__
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdbool.h>
 
@@ -66,5 +66,8 @@ void print_malloc_err(char *msg);
 void line_or_integer_err(char *msg, int line);
 void unkown_op_code_err(char *msg, char *arg, int line);
 op_codes *get_op_codes(op_codes opcodes[]);
+void free_stack(stack_t *stack);
+void free_list(char **args);
+int stack_length(stack_t *stack);
 
 #endif
