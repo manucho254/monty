@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h>
 
 #define READ_BUFFER 1024
 char *remove_spaces_from_str(char *string);

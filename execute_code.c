@@ -1,7 +1,6 @@
 #include "monty.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 int _helper(stack_t *stack, char **str);
 /**

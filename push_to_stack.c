@@ -1,6 +1,5 @@
 #include "monty.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * push - function to add item to stack.

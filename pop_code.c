@@ -1,6 +1,5 @@
 #include "monty.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * pop - function to pop item to stack.
