@@ -16,7 +16,7 @@ char *remove_spaces_from_str(char *string);
 
 char *get_file_data(char *file)
 {
-	char *codes;
+	char *codes, *new;
 	int fd, read_size;
 
 	fd = open(file, O_RDONLY);
@@ -39,8 +39,9 @@ char *get_file_data(char *file)
 		exit(EXIT_FAILURE);
 	}
 
-	codes = remove_spaces_from_str(codes);
-	return (codes);
+	close(fd);
+	new = remove_spaces_from_str(codes);
+	return (new);
 }
 
 /**
@@ -54,7 +55,7 @@ char *get_file_data(char *file)
 char *remove_spaces_from_str(char *str)
 {
 	/** non_space_count to keep the frequency of non space characters */
-	int i, len = 0;
+	int i = 0, len = 0;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -63,9 +64,9 @@ char *remove_spaces_from_str(char *str)
 			str[len] = str[i];
 			len++;/** non_space_count incremented */
 		}
-		if (i >= 1)
+		if (i >= 0)
 		{
-			if (str[i] == ' ' && str[i - 1] != ' ' && str[i - 1] != '\n')
+			if (str[i] == ' ' && (str[i - 1] != ' ' && str[i - 1] != '\n'))
 			{
 				str[len] = str[i];
 				len++;
