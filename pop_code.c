@@ -5,6 +5,7 @@
 /**
  * pop - function to pop item to stack.
  *
+ *
  * @stack: pointer to stack.
  *
  */

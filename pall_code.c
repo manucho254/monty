@@ -6,6 +6,7 @@
 /**
  * pall - print all values in stack
  *
+ *
  * @stack: pointer to stack
  */
 

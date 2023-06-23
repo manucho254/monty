@@ -5,6 +5,7 @@
  * count_strings - calcute the number of strings,
  * after splitting a string.
  *
+ *
  * @s: pointer to string
  * @deli: delimeter to use with strtok
  *

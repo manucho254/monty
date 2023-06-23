@@ -9,6 +9,7 @@
  *
  * @s: string to check
  *
+ *
  * Return: True if all values in string are numbers else false.
  */
 
