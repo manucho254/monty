@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * pint - print top value in stack
@@ -11,8 +12,6 @@
 
 void pint(stack_t *stack)
 {
-	char *val, tmp[20];
-
 	if (stack == NULL)
 	{
 		line_or_integer_err(": can't pint, stack empty", 0);
@@ -21,9 +20,7 @@ void pint(stack_t *stack)
 
 	while (stack)
 	{
-		val = _itoa(stack->n, tmp, 10);
-		strcat(val, "\n");
-		write(STDOUT_FILENO, val, strlen(val));
+		fprintf(stdout, "%d\n", stack->n);
 		stack = stack->next;
 		break;
 	}

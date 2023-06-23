@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_error - function to print error message
@@ -16,9 +17,9 @@ void print_error(char *msg, char *arg)
 	if (arg)
 	{
 		strcat(msg, arg);
-		write(STDERR_FILENO, msg, strlen(msg));
+		fprintf(stderr, "%s\n", msg);
 	}
-	write(STDERR_FILENO, msg, strlen(msg));
+	fprintf(stderr, "%s\n", msg);
 }
 
 /**
@@ -29,7 +30,7 @@ void print_error(char *msg, char *arg)
 
 void print_malloc_err(char *msg)
 {
-	write(STDERR_FILENO, msg, strlen(msg));
+	fprintf(stderr, "%s\n", msg);
 }
 
 /**
@@ -51,7 +52,7 @@ void line_or_integer_err(char *msg, int line)
 	s[0] = 'L';
 	strcat(s, num);
 	strcat(s, msg);
-	write(STDERR_FILENO, s, strlen(s));
+	fprintf(stderr, "%s\n", s);
 	free(s);
 }
 
@@ -75,6 +76,6 @@ void unkown_op_code_err(char *msg, char *arg, int line)
 	strcat(s, num);
 	strcat(s, msg);
 	strcat(s, arg);
-	write(STDERR_FILENO, s, strlen(s));
+	fprintf(stderr, "%s\n", s);
 	free(s);
 }
