@@ -14,20 +14,16 @@
 
 bool is_number(char *s)
 {
-	unsigned int x, num;
+	unsigned int x;
 
 	if (strcmp(s, "0") == 0)
 		return (true);
 
-	num = atoi(s);
-
-	if (num != 0)
-	{
-		return (true);
-	}
 	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (isdigit(s[x]) == 0)
+		if (s[x] == '-')
+			continue;
+		if (!isdigit(s[x]))
 		{
 			return (false);
 		}

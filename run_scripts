@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ls -ctr *.sh | while read script
+do
+	echo $script
+	bash $script
+done
