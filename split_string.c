@@ -15,12 +15,14 @@
 
 char **separate_string(char *s, char *deli)
 {
-	char *portion, *tmp;
+	char *portion, *tmp, *tmp_2;
 	char **code_arr; /** array of string arrays */
-	int x = 0, len = 0;
+	int x = 0, len = 0, count = 0;
 
 	tmp = strdup(s);
-	code_arr = malloc(sizeof(char *));
+	tmp_2 = strdup(s);
+	count = count_strings(tmp_2, deli); /** get number of substrings in string */
+	code_arr = malloc(sizeof(char *) * count + 1);
 	if (code_arr == NULL)
 	{
 		return (NULL);
@@ -29,7 +31,6 @@ char **separate_string(char *s, char *deli)
 	while (portion != NULL)
 	{
 		/** reallocate memory to cmd_array */
-		code_arr = realloc(code_arr, (x + 1) * sizeof(char *));
 		len = strlen(portion);
 		code_arr[x] = malloc((len + 1)  * sizeof(char));
 		if (code_arr[x] == NULL)
@@ -43,5 +44,6 @@ char **separate_string(char *s, char *deli)
 	}
 	code_arr[x] = NULL;
 	free(tmp); /** free tmp */
+	free(tmp_2); /** free tmp_2 */
 	return (code_arr);
 }

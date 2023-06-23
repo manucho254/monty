@@ -42,9 +42,12 @@ void print_malloc_err(char *msg)
 void line_or_integer_err(char *msg, int line)
 {
 	char *s, *num, tmp[100];
+	int len = 0;
 
 	num = _itoa(line, tmp, 10);
-	s = malloc(sizeof(char) * ((strlen(num) + strlen(msg)) + 2));
+	len = (strlen(num) + strlen(msg));
+	s = malloc(sizeof(char) * (len));
+	memset(s, 0, len - 1);
 	s[0] = 'L';
 	strcat(s, num);
 	strcat(s, msg);
@@ -63,9 +66,11 @@ void line_or_integer_err(char *msg, int line)
 void unkown_op_code_err(char *msg, char *arg, int line)
 {
 	char *s, *num, tmp[100];
+	int len = 0;
 
 	num = _itoa(line, tmp, 10);
-	s = malloc(sizeof(char) * ((strlen(num) + strlen(msg)) + 2));
+	len = (strlen(num) + strlen(msg));
+	s = malloc(sizeof(char) * (len + 2));
 	s[0] = 'L';
 	strcat(s, num);
 	strcat(s, msg);

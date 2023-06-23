@@ -17,6 +17,7 @@ void free_stack(stack_t *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+	free(stack);
 }
 
 /**
@@ -35,4 +36,5 @@ void free_list(char **args)
 		free(args[i]);
 		i++;
 	}
+	free(args);
 }

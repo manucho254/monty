@@ -1,5 +1,6 @@
 #include "monty.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * mod - function to get the remainder,
