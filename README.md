@@ -4,6 +4,7 @@
 
 #### Monty byte code files
 
+
 * Files containing Monty byte codes usually have the .m extension.
 * Most of the industry uses this standard but it is not required by the specification of the language. 
 * There is not more than one instruction per line. 
@@ -11,6 +12,7 @@
 * Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account.
 
 #### The monty program:
+
 		
 	- Usage: monty file:
          - where file is the path to the file containing Monty byte code
