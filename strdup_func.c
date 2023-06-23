@@ -13,10 +13,7 @@
 char *strdup(const char *src)
 {
 	char *dst;
-
-	if (src == NULL)
-		return (NULL);
-
+	
 	dst = malloc(strlen(src) + 1);/** Space for length plus null */
 	if (dst == NULL)
 		return (NULL);/** No memory */
