@@ -23,7 +23,7 @@ stack_t *add(stack_t **stack, int line)
 
 	sum = (*stack)->n + (*stack)->next->n;
 	(*stack)->next->n = sum;
-	pop(stack);
+	pop(stack, line);
 
 	return (*stack);
 }

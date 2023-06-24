@@ -14,7 +14,7 @@ void pint(stack_t *stack)
 {
 	if (stack == NULL)
 	{
-		line_or_integer_err(": can't pint, stack empty", 0);
+		line_or_integer_err(": can't pint, stack empty", 1);
 		exit(EXIT_FAILURE);
 	}
 

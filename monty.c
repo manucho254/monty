@@ -35,5 +35,7 @@ int main(int argc, char *argv[])
 
 	free_list(sep);
 	free(data);
+	free_stack(new);
+	stack = NULL;
 	return (exit_code);
 }

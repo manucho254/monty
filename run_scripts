@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ls -ctr *.sh | while read script
+ls -ctr monty_project/*task*/*.sh | while read script
 do
 	echo $script
 	bash $script

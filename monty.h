@@ -52,7 +52,7 @@ char *get_file_data(char *file);
 stack_t *push(stack_t *stack, char *data);
 void pall(stack_t *stack);
 void pint(stack_t *stack);
-stack_t *pop(stack_t **stack);
+stack_t *pop(stack_t **stack, int line);
 void swap(stack_t *stack, int line);
 stack_t *add(stack_t **stack, int line);
 stack_t *sub(stack_t **stack, int line);
@@ -64,7 +64,7 @@ char **separate_string(char *s, char *deli);
 int count_strings(char *s, char *deli);
 stack_t *execute_codes(stack_t **stack, char *args[]);
 bool is_number(char *s);
-char *_itoa(int value, char *s, int base);
+/** char *_itoa(int value, char *s, int base); */
 void print_error(char *msg, char *arg);
 void print_malloc_err(char *msg);
 void line_or_integer_err(char *msg, int line);

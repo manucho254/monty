@@ -29,13 +29,17 @@ stack_t *mod(stack_t **stack, int line)
 		exit(EXIT_FAILURE);
 	}
 
-	/** val = stack->n; ** value for top item in stack */
-	if ((*stack)->n < 0)
-		(*stack)->n = abs((*stack)->n);
+	/**
+	 * val = stack->n; value for top item in stack
+	 * if ((*stack)->n < 0)
+	 * (*stack)->n = abs((*stack)->n);
+	 * if ((*stack)->next->n < 0)
+	 * (*stack)->n = abs((*stack)->next->n);
+	 */
 
 	res = (*stack)->next->n % (*stack)->n;
 	(*stack)->next->n = res;
-	pop(stack);
+	pop(stack, line);
 
 	return (*stack);
 }

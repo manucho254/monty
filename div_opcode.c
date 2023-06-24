@@ -28,7 +28,7 @@ stack_t *divide(stack_t **stack, int line)
 	}
 	res = (*stack)->next->n - (*stack)->n;
 	(*stack)->next->n = res;
-	pop(stack);
+	pop(stack, line);
 
 	return (*stack);
 }
