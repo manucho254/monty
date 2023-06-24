@@ -40,18 +40,8 @@ void print_malloc_err(char *msg)
 
 void line_or_integer_err(char *msg, int line)
 {
-	char *s, *num, tmp[100];
-	int len = 0;
 
-	num = _itoa(line, tmp, 10);
-	len = (strlen(num) + strlen(msg));
-	s = malloc(sizeof(char) * (len));
-	memset(s, 0, len - 1);
-	s[0] = 'L';
-	strcat(s, num);
-	strcat(s, msg);
-	fprintf(stderr, "%s\n", s);
-	free(s);
+	fprintf(stderr, "L%d%s\n", line, msg);
 }
 
 /**
@@ -64,16 +54,5 @@ void line_or_integer_err(char *msg, int line)
 
 void unkown_op_code_err(char *msg, char *arg, int line)
 {
-	char *s, *num, tmp[100];
-	int len = 0;
-
-	num = _itoa(line, tmp, 10);
-	len = (strlen(num) + strlen(msg));
-	s = malloc(sizeof(char) * (len + 2));
-	s[0] = 'L';
-	strcat(s, num);
-	strcat(s, msg);
-	strcat(s, arg);
-	fprintf(stderr, "%s\n", s);
-	free(s);
+	fprintf(stderr, "L%d%s %s\n", line, msg, arg);
 }

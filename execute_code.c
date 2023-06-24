@@ -42,7 +42,7 @@ stack_t *execute_codes(stack_t **stack, char *args[])
 		}
 		if (i == 17)
 		{
-			unkown_op_code_err(": unknown instruction ", tmp[0], (x + 1));
+			unkown_op_code_err(": unknown instruction", tmp[0], (x + 1));
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
