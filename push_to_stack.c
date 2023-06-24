@@ -26,9 +26,8 @@ stack_t *push(stack_t *stack, char *data)
 		new->prev = NULL;
 		new->n = atoi(data);
 		new->next = NULL;
-		(stack) = new;
 
-		return (stack);
+		return (new);
 	}
 	/** check if the list is empty */
 	new->prev = NULL;

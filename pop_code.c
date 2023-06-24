@@ -1,21 +1,42 @@
 #include "monty.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * pop - function to pop item to stack.
  *
  * @stack: pointer to stack.
  *
+ * Return: pointer to stack else return NULL
  */
 
-void pop(stack_t *stack)
+stack_t *pop(stack_t **stack)
 {
+	stack_t *tmp;
+
 	if (stack == NULL)
 	{
 		line_or_integer_err(": can't pop an empty stack", 0);
 		exit(EXIT_FAILURE);
 	}
 
-	if (stack->next != NULL)
-		*stack = *stack->next;
+	tmp = malloc(sizeof(stack_t));
+	if (tmp == NULL)
+		return (NULL);
+
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		return (NULL);
+	}
+	if ((*stack)->next != NULL)
+	{
+		tmp = (*stack);
+		(*stack) = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(tmp);
+		return (*stack);
+	}
+
+	return (*stack);
 }

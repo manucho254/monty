@@ -10,7 +10,7 @@
 
 void free_stack(stack_t *stack)
 {
-	while (stack)
+	while (stack != NULL)
 	{
 		stack_t *tmp = stack;
 

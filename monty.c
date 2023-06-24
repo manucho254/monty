@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
 	new = execute_codes(&stack, sep);
 	if (new == NULL)
 		exit_code = 1;
-	else
-		 free_stack(new);
+
 	free_list(sep);
 	free(data);
 	return (exit_code);

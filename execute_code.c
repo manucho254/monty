@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int _helper(stack_t *stack, char **str, int line);
+int _helper(stack_t **stack, char **str, int line);
 /**
  * execute_codes - function to run opcodes
  *
@@ -46,7 +46,7 @@ stack_t *execute_codes(stack_t **stack, char *args[])
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-		if (_helper(*stack, tmp, x) == 1)
+		if (_helper(stack, tmp, x) == 1)
 			return (NULL);
 	}
 	return (*stack);
@@ -62,27 +62,27 @@ stack_t *execute_codes(stack_t **stack, char *args[])
  * Return: 1 if failure else 0
  */
 
-int _helper(stack_t *stack, char **str, int line)
+int _helper(stack_t **stack, char **str, int line)
 {
 	if (strcmp(str[0], "nop") == 0)
 		return (1);
 	if (strcmp(str[0], "pall") == 0)
-		pall(stack);
+		pall(*stack);
 	if (strcmp(str[0], "pint") == 0)
-		pint(stack);
+		pint(*stack);
 	if (strcmp(str[0], "pop") == 0)
-		pop(stack);
+		(*stack) = pop(stack);
 	if (strcmp(str[0], "swap") == 0)
-		swap(stack, (line + 1));
+		swap(*stack, (line + 1));
 	if (strcmp(str[0], "add") == 0)
-		add(stack, (line + 1));
+		(*stack) = add(stack, (line + 1));
 	if (strcmp(str[0], "sub") == 0)
-		sub(stack, (line + 1));
+		(*stack) = sub(stack, (line + 1));
 	if (strcmp(str[0], "div") == 0)
-		divide(stack, (line + 1));
+		(*stack) = divide(stack, (line + 1));
 	if (strcmp(str[0], "mul") == 0)
-		mul(stack, (line + 1));
+		(*stack) = mul(stack, (line + 1));
 	if (strcmp(str[0], "mod") == 0)
-		mod(stack, (line + 1));
+		(*stack) = mod(stack, (line + 1));
 	return (0);
 }

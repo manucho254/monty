@@ -15,11 +15,9 @@
 void print_error(char *msg, char *arg)
 {
 	if (arg)
-	{
-		strcat(msg, arg);
+		fprintf(stderr, "%s %s\n", msg, arg);
+	else
 		fprintf(stderr, "%s\n", msg);
-	}
-	fprintf(stderr, "%s\n", msg);
 }
 
 /**

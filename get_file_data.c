@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 #define READ_BUFFER 1024
 char *remove_spaces_from_str(char *string);
@@ -22,12 +23,14 @@ char *get_file_data(char *file)
 	if (fd == -1)
 	{
 		print_error("Error: Can't open file ", file);
+		close(fd);
 		exit(EXIT_FAILURE);
 	}
 	codes = malloc(READ_BUFFER * sizeof(char));
 	if (codes == NULL)
 	{
 		print_error("Error: malloc failed ", NULL);
+		close(fd);
 		exit(EXIT_FAILURE);
 	}
 	read_size = read(fd, codes, READ_BUFFER);
@@ -38,8 +41,8 @@ char *get_file_data(char *file)
 		exit(EXIT_FAILURE);
 	}
 
-	close(fd);
 	new = remove_spaces_from_str(codes);
+	close(fd);
 	return (new);
 }
 

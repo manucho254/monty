@@ -18,7 +18,7 @@ void pint(stack_t *stack)
 		exit(EXIT_FAILURE);
 	}
 
-	while (stack)
+	while (stack != NULL)
 	{
 		fprintf(stdout, "%d\n", stack->n);
 		stack = stack->next;
