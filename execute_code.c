@@ -65,7 +65,7 @@ stack_t *execute_codes(stack_t **stack, char *args[])
 int _helper(stack_t **stack, char **str, int line)
 {
 	if (strcmp(str[0], "nop") == 0)
-		return (1);
+		return (0);
 	if (strcmp(str[0], "pall") == 0)
 		pall(*stack);
 	if (strcmp(str[0], "pint") == 0)
