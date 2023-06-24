@@ -22,14 +22,14 @@ char *get_file_data(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		print_error("Error: Can't open file ", file);
+		print_error("Error: Can't open file", file);
 		close(fd);
 		exit(EXIT_FAILURE);
 	}
 	codes = malloc(READ_BUFFER * sizeof(char));
 	if (codes == NULL)
 	{
-		print_error("Error: malloc failed ", NULL);
+		print_error("Error: malloc failed", NULL);
 		close(fd);
 		exit(EXIT_FAILURE);
 	}
